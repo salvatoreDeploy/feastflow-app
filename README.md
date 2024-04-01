@@ -10,6 +10,9 @@
 - prettier-plugin-tailwindcss
 - eslint-plugin-simple-import-sort
 - react-helmet-async
+- react hook-form
+- zod
+- @hookform-resolvers
 
 ### Lógicas e Topicos:
 
