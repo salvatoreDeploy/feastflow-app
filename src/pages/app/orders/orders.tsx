@@ -1,16 +1,15 @@
-import { ArrowRight, Search, X } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+
+import { OrderFilter } from './order-filter'
+import { TableOrderRow } from './order-table-row'
 
 export function Orders() {
   return (
@@ -20,10 +19,7 @@ export function Orders() {
         <h1 className="text-3xl font-bold tracking-tighter">Pedidos</h1>
       </div>
       <div className="space-y-2.5">
-        <form className="flex items-center gap-2">
-          <span>Filtros:</span>
-          <Input placeholder="Nome do cliente" className="h-8 w-[320px]" />
-        </form>
+        <OrderFilter />
         <div className="rounded-md border">
           <Table>
             <TableHeader>
@@ -40,46 +36,7 @@ export function Orders() {
             </TableHeader>
             <TableBody>
               {Array.from({ length: 25 }).map((_, index) => {
-                return (
-                  <TableRow key={index}>
-                    <TableCell>
-                      <Button variant={'outline'} size={'xs'}>
-                        <Search className="size-3" />
-                        <span className="sr-only">Detalhes do pedido</span>
-                      </Button>
-                    </TableCell>
-                    <TableCell className="font-mono text-xs font-medium">
-                      d90saud90sa8d9s0a8ds9a
-                    </TableCell>
-                    <TableCell className="text-muted-foreground">
-                      há 15 minutos
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2">
-                        <span className="size-3 rounded-full bg-slate-500"></span>
-                        <span className="font-medium text-muted-foreground">
-                          Pendente
-                        </span>
-                      </div>
-                    </TableCell>
-                    <TableCell className="font-medium">
-                      Henrique Araujo
-                    </TableCell>
-                    <TableCell className="font-medium">R$ 149,90</TableCell>
-                    <TableCell>
-                      <Button variant={'outline'} size={'xs'}>
-                        <ArrowRight className="mr-3 size-3" />
-                        Proximo
-                      </Button>
-                    </TableCell>
-                    <TableCell>
-                      <Button variant={'ghost'} size={'xs'}>
-                        <X className="mr-3 size-3" />
-                        Cancelar
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                )
+                return <TableOrderRow key={index} />
               })}
             </TableBody>
           </Table>
