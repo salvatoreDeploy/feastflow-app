@@ -13,8 +13,9 @@
 - react hook-form
 - zod
 - @hookform-resolvers
+- rechart
 
-### Lógicas e Topicos:
+### Lógicas e Tópicos:
 
 ### Conceitos:
 
