@@ -14,6 +14,8 @@
 - zod
 - @hookform-resolvers
 - rechart
+- axios
+- @tanstack/react-query
 
 ### Lógicas e Tópicos:
 
