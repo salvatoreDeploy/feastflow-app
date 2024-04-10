@@ -32,24 +32,15 @@ export function SignIn() {
     try {
       await authenticate({ email: data.email })
 
-      toast.success('Restaurante casdastrado com sucesso!', {
+      toast.success('Enviamos um link de autenticação para seu e-mail', {
         action: {
           label: 'Reenviar',
           onClick: () => handleSingIn(data),
         },
       })
     } catch (error) {
-      toast.error('Erro ao cadastrar restaurante')
+      toast.error('Credenciais invalidas')
     }
-
-    await new Promise((resolve) => setTimeout(resolve, 5000))
-
-    toast.success('Enviamos um link de autenticação para seu e-mail', {
-      action: {
-        label: 'Reenviar',
-        onClick: () => handleSingIn(data),
-      },
-    })
   }
 
   return (
