@@ -25,4 +25,6 @@
   usando segurança de HttpOnly devemos na configuração da lib que esta fazendo a requisição pro back, adicionar uma propriedade como informação sendo ela
   'withCredentials' como 'true' assim sera enviado automaticamente os Cookies pro back neste caso servindo para segurança de autenticação e determinado qual usuário pelo token do JWT do back-end
 
+- React State (Local State(useState), HTTP State(Dados HTTP), Global State(Zustand, Redux, Jotai))
+
 ### Deploy:
