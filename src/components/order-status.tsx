@@ -1,4 +1,4 @@
-type OrderStatus =
+export type OrderStatus =
   | 'pending'
   | 'processing'
   | 'delivering'
@@ -12,9 +12,9 @@ interface OrderStatusProps {
 const orderStatusMap: Record<OrderStatus, string> = {
   pending: 'Pendente',
   canceled: 'Cancelado',
-  processing: 'Preparo',
-  delivered: 'Entrgue',
-  delivering: 'Em preparo',
+  processing: 'Em Preparo',
+  delivered: 'Entregue',
+  delivering: 'Saiu p/ entrega',
 }
 
 export function OrderStatus({ status }: OrderStatusProps) {
@@ -29,11 +29,11 @@ export function OrderStatus({ status }: OrderStatusProps) {
       )}
 
       {status === 'delivered' && (
-        <span className="bg-emerald-500-500 size-2 rounded-full"></span>
+        <span className="size-2 rounded-full bg-emerald-500"></span>
       )}
 
       {['processing', 'delivering'].includes(status) && (
-        <span className="bg-amber-500-400 size-2 rounded-full"></span>
+        <span className="size-2 rounded-full bg-amber-500"></span>
       )}
 
       <span className="font-medium text-muted-foreground">

@@ -7,7 +7,7 @@ export interface GetOrdersQuery {
   status?: string | null
 }
 
-interface GetOrdersResponse {
+export interface GetOrdersResponse {
   orders: {
     status: 'pending' | 'processing' | 'delivering' | 'delivered' | 'canceled'
     customerName: string

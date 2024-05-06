@@ -1,7 +1,10 @@
+/* eslint-disable prettier/prettier */
+import { useQuery } from '@tanstack/react-query'
 import { BarChart } from 'lucide-react'
 import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts'
 import colors from 'tailwindcss/colors'
 
+import { getPopularProducts } from '@/api/get-popular-products'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const COLORS = [
@@ -12,15 +15,24 @@ const COLORS = [
   colors.rose[500],
 ]
 
-const data = [
+/* const data = [
   { product: 'Pizza Peperoni', amount: 32 },
   { product: 'Pizza Portuguesa', amount: 62 },
   { product: 'Pizza Mussarela', amount: 71 },
   { product: 'Pizza Camarão', amount: 27 },
   { product: 'Pizza Stroganoff', amount: 57 },
-]
+] */
 
 export function PopularProductsChart() {
+  const { data: popularProducts } = useQuery({
+    queryKey: ['metrics', 'popular-products'],
+    queryFn: getPopularProducts,
+  })
+
+  if (!popularProducts) {
+    return
+  }
+
   return (
     <Card className="col-span-3">
       <CardHeader className="pb-8">
@@ -35,7 +47,7 @@ export function PopularProductsChart() {
         <ResponsiveContainer width="100%" height={240}>
           <PieChart style={{ fontSize: 12 }}>
             <Pie
-              data={data}
+              data={popularProducts}
               dataKey="amount"
               nameKey="product"
               cx="50%"
@@ -66,15 +78,16 @@ export function PopularProductsChart() {
                     textAnchor={x > cx ? 'start' : 'end'}
                     dominantBaseline="central"
                   >
-                    {data[index].product.length > 12
-                      ? data[index].product.substring(0, 12).concat('...')
-                      : data[index].product}{' '}
+                    {popularProducts[index].product.length > 12
+                      ? popularProducts[index].product.substring(0, 12)
+                        .concat('...')
+                      : popularProducts[index].product}{' '}
                     ({value})
                   </text>
                 )
               }}
             >
-              {data.map((_, index) => {
+              {popularProducts.map((_, index) => {
                 return (
                   <Cell
                     key={`cell-${index}`}
