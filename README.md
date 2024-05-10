@@ -21,6 +21,7 @@
 - jest-dom
 - happy-dom
 - @testing-library/user-event
+- msw@latest
 
 ### Lógicas e Tópicos:
 
