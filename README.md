@@ -16,6 +16,11 @@
 - rechart
 - axios
 - @tanstack/react-query
+- vitest
+- testing library
+- jest-dom
+- happy-dom
+- @testing-library/user-event
 
 ### Lógicas e Tópicos:
 
