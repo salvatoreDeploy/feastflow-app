@@ -4,12 +4,17 @@ import { env } from '@/env'
 
 import { getDailyRevenueInPeriodMock } from './get-daily-revenue-in-period-mock'
 import { getDayOrdersAmountMock } from './get-day-orders-amount'
+import { getManagedRestaurantMock } from './get-managed-restaurant-mock'
 import { getMonthCanceledOrdersAmount } from './get-month-canceled-orders-amount'
 import { getMonthOrdersAmount } from './get-month-orders-amount'
 import { getMonthRevenueMock } from './get-month-revenue-mock'
+import { getOrderDetailsMock } from './get-order-details-mock'
+import { getOrdersMocks } from './get-orders-mock'
 import { getPopularProductsMock } from './get-popular-products.month-mock'
+import { getProfileMock } from './get-profile-mock'
 import { registerRestaurantMock } from './register-restaurant-mock'
 import { signInMock } from './sign-in-mock'
+import { UpdateProfileMock } from './update-profile-mock'
 
 export const worker = setupWorker(
   signInMock,
@@ -20,6 +25,11 @@ export const worker = setupWorker(
   getMonthRevenueMock,
   getDailyRevenueInPeriodMock,
   getPopularProductsMock,
+  getProfileMock,
+  UpdateProfileMock,
+  getManagedRestaurantMock,
+  getOrdersMocks,
+  getOrderDetailsMock,
 )
 
 export async function enableMSW() {

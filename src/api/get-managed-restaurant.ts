@@ -4,7 +4,7 @@ export interface ManagedRestaurantResponse {
   name: string
   id: string
   createdAt: Date
-  updatedAt: Date
+  updatedAt: Date | null
   description: string | null | undefined
   managerId: string | null
 }
